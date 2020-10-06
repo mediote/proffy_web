@@ -5,3 +5,5 @@ INSTALANDO MODULO DE ROTAS
   # yarn add react-router-dom
   # yarn add @types/react-router-dom -D
 
+INSTALAR AXIOS
+  # yarn add axios

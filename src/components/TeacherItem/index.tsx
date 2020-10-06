@@ -1,39 +1,64 @@
 import React from 'react';
-import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
-
+import api from '../services/api';
 import './styles.css';
 
-const TeacherItem: React.FC = () => {
+import whastappIcon from '../../assets/images/icons/whatsapp.svg';
+
+
+
+export interface Teacher {
+  avatar: string;
+  bio: string;
+  cost: number;
+  id: number;
+  name: string;
+  subject: string;
+  whatsapp: number;
+}
+
+interface TeacherItemProps {
+  teacher: Teacher;
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }: TeacherItemProps) => {
+  function createNewConnection() {
+    api.post('connections', {
+      user_id: teacher.id,
+    });
+  }
+
   return (
     <article className="teacher-item">
       <header>
-        <img
-          src="https://avatars3.githubusercontent.com/u/25845947?s=460&u=ab486be4712e172acf46e3d8bcc25f16d17b924c&v=4"
-          alt="André Mediote"
-        />
+        <img src={teacher.avatar} alt={teacher.name} />
         <div>
-          <strong>André Mediote</strong>
-          <span>Quimica</span>
+          <strong>{teacher.name}</strong>
+          <span>{teacher.subject}</span>
         </div>
       </header>
       <p>
-        Entusiasta das melhores técnologias de quimica avançada.
-        <br /> <br />
-        Apaixonado por expplodir coisas em laboratório e por mudar a vida das
-        pessoas através de experiências.
+        {teacher.bio}
       </p>
       <footer>
         <p>
           Preço/hora
-          <strong>R$ 80,00</strong>
+          <strong>
+            R$
+            {teacher.cost}
+          </strong>
         </p>
-        <button type="button">
-          <img src={whatsappIcon} alt="Whatsapp" />
+        <a
+          target="_blank"
+          onClick={createNewConnection}
+          href={`https://wa.me/${teacher.whatsapp}`}
+          type="button"
+        >
+          <img src={whastappIcon} alt="Whatsapp" />
           Entrar em contato
-        </button>
+        </a>
       </footer>
     </article>
   );
-};
+}
 
 export default TeacherItem;

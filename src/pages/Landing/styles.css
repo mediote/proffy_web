@@ -1,4 +1,4 @@
-#page-landing{
+#page-landing {
   width: 100vw;
   height: 100vh;
 
@@ -14,24 +14,23 @@
   height: 10rem;
 }
 
-.hero-image{
+.hero-image {
   width: 100%;
 }
 
-.logo-container{
+.logo-container {
   text-align: center;
-  text-align: left;
   margin-bottom: 3.2rem;
 }
 
-.logo-container h2{
+.logo-container h2 {
   font-weight: 500;
   font-size: 2.4rem;
   line-height: 4.6rem;
   margin-top: 0.8rem;
 }
 
-.buttons-container{
+.buttons-container {
   display: flex;
   justify-content: center;
   margin: 3.2rem 0;
@@ -40,8 +39,7 @@
 .buttons-container a {
   width: 30rem;
   height: 10.4rem;
-  border-radius: 1.6rem;
-  margin-right: 1.6rem;
+  border-radius: 0.8rem;
   font: 700 2.0rem Archivo;
 
   display: flex;
@@ -78,10 +76,6 @@
   background: var(--color-secundary-dark);
 }
 
-.buttons-container a img{
-  margin-right: 2.4rem;
-}
-
 .total-connections {
   font-size: 1.4rem;
 
@@ -90,7 +84,7 @@
   justify-content: center;
 }
 
-.total-connections img{
+.total-connections img {
   margin-left: 0.8rem;
 }
 
@@ -102,20 +96,16 @@
     grid-template-rows: 350px 1fr;
     grid-template-columns: 2fr 1fr 1fr;
     grid-template-areas:
-    "logo hero hero"
-    "buttons buttons total"
+      'logo hero hero'
+      'buttons buttons total'
     ;
   }
 
-  .logo-container{
+  .logo-container {
     grid-area: logo;
     align-self: center;
+    text-align: left;
     margin: 0;
-  }
-
-  .hero-image{
-    grid-area:hero;
-    justify-self: end;
   }
 
   .logo-container h2 {
@@ -123,19 +113,29 @@
     font-size: 3.6rem;
   }
 
-  .logo-container img{
+  .logo-container img {
     height: 100%;
   }
 
-  .buttons-container{
+  .hero-image {
+    grid-area: hero;
+    justify-self: end;
+  }
+
+  .buttons-container {
     grid-area: buttons;
     justify-content: flex-start;
   }
+
   .buttons-container a {
-    font-size:2.4rem;
+    font-size: 2.4rem;
   }
 
-  .total-connections{
+  .buttons-container a img {
+    margin-right: 2.4rem;
+  }
+
+  .total-connections {
     grid-area: total;
     justify-self: end;
   }
